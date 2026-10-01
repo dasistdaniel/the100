@@ -2,7 +2,7 @@
 
 Datum: 2026-10-01
 Repo: https://github.com/dasistdaniel/The100
-Ziel-URL: https://dasistdaniel.github.io/The100/
+Ziel-URL: https://dasistdaniel.github.io/the100/
 
 ## Ziel
 

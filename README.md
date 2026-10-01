@@ -1,6 +1,6 @@
 # The 100
 
-Meine 100-Spiele-Challenge: https://dasistdaniel.github.io/The100/
+Meine 100-Spiele-Challenge: https://dasistdaniel.github.io/the100/
 
 Jedes Spiel hat ein eigenes Repo. Diese Seite sammelt alle Spiele mit Screenshot, Infos und Links und zeigt den Fortschritt.
 
