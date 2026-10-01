@@ -16,8 +16,8 @@ test('rejects colors that are not #rrggbb', () => {
 
 test('checkPalette reports failing pairs per theme', () => {
   const palette = JSON.parse(JSON.stringify({
-    light: { bg: '#ffffff', surface: '#ffffff', text: '#ffffff', muted: '#000000', accent: '#000000', onAccent: '#ffffff', border: '#000000', tagBg: '#ffffff', tagText: '#000000', track: '#ffffff', focus: '#000000' },
-    dark: { bg: '#000000', surface: '#000000', text: '#ffffff', muted: '#ffffff', accent: '#ffffff', onAccent: '#000000', border: '#ffffff', tagBg: '#000000', tagText: '#ffffff', track: '#000000', focus: '#ffffff' },
+    light: { bg: '#ffffff', surface: '#ffffff', text: '#ffffff', muted: '#000000', accent: '#000000', onAccent: '#ffffff', border: '#000000', tagBg: '#ffffff', tagText: '#000000', track: '#ffffff', focus: '#000000', bgFrom: '#ffffff', bgMid: '#ffffff', bgTo: '#ffffff', gradA: '#000000', gradB: '#000000' },
+    dark: { bg: '#000000', surface: '#000000', text: '#ffffff', muted: '#ffffff', accent: '#ffffff', onAccent: '#000000', border: '#ffffff', tagBg: '#000000', tagText: '#ffffff', track: '#000000', focus: '#ffffff', bgFrom: '#000000', bgMid: '#000000', bgTo: '#000000', gradA: '#ffffff', gradB: '#ffffff' },
   }));
   const failures = checkPalette(palette);
   assert.ok(failures.some((f) => f.theme === 'light' && f.fg === 'text' && f.bg === 'bg'));

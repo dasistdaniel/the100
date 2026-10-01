@@ -38,7 +38,7 @@ test('only http(s) and mailto links survive in descriptions', () => {
 
 test('tile shows number, title, date and a Code button but no Spielen button without play_url', () => {
   const html = renderTile(game());
-  assert.match(html, /<article class="tile" id="game-007">/);
+  assert.match(html, /<article class="tile" id="game-007" style="--hue:329">/);
   assert.match(html, /#007/);
   assert.match(html, /MojiBlast/);
   assert.match(html, /<time datetime="2026-03-14">14\.03\.2026<\/time>/);
@@ -60,7 +60,7 @@ test('tile uses the screenshot with alt text, or an aria-hidden placeholder', ()
   assert.doesNotMatch(emoji, /<img/);
 
   const numberOnly = renderTile(game());
-  assert.match(numberOnly, /<span class="placeholder" aria-hidden="true">#007<\/span>/);
+  assert.match(numberOnly, /<span class="placeholder placeholder-num" aria-hidden="true">#007<\/span>/);
 });
 
 test('special characters in title, tags and emoji are escaped in text and attributes', () => {
@@ -112,4 +112,13 @@ test('renderPage does not re-expand placeholders found inside game content and r
   const html = renderPage({ template: '{{tiles}}', games: [game({ title: '{{buildDate}}' })], buildDate: 'X' });
   assert.match(html, /\{\{buildDate\}\}/);
   assert.throws(() => renderPage({ template: '{{nope}}', games: [], buildDate: 'X' }), /\{\{nope\}\}/);
+});
+
+test('every game gets a hue from its number, spread around the color wheel', () => {
+  const hue = (number) => /--hue:(\d+)/.exec(renderTile(game({ number })))[1];
+  assert.equal(hue(1), '47');
+  assert.equal(hue(5), '235');
+  const hues = new Set(Array.from({ length: 100 }, (_, i) => hue(i + 1)));
+  assert.ok(hues.size >= 70, `expected varied hues, got ${hues.size}`);
+  assert.ok([...hues].every((h) => Number(h) >= 0 && Number(h) < 360));
 });

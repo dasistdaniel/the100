@@ -40,7 +40,9 @@ export function renderTile(game) {
 
   const media = game.hasScreenshot
     ? `<img src="games/${escapeHtml(game.folder)}/screenshot.png" alt="Screenshot von ${title}" loading="lazy">`
-    : `<span class="placeholder" aria-hidden="true">${game.emoji ? escapeHtml(game.emoji) : `#${id}`}</span>`;
+    : game.emoji
+      ? `<span class="placeholder" aria-hidden="true">${escapeHtml(game.emoji)}</span>`
+      : `<span class="placeholder placeholder-num" aria-hidden="true">#${id}</span>`;
 
   const tags = game.tags.length
     ? `<ul class="tags" aria-label="Tags">${game.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}</ul>`
@@ -51,7 +53,10 @@ export function renderTile(game) {
     : '';
   const code = `<a class="btn" href="${escapeHtml(game.repo)}">Code<span class="vh"> von ${title} ansehen</span></a>`;
 
-  return `<article class="tile" id="game-${id}">
+  // Spread the hue by number so neighbouring tiles look different; used only for decoration.
+  const hue = (game.number * 47) % 360;
+
+  return `<article class="tile" id="game-${id}" style="--hue:${hue}">
   <div class="shot">${media}</div>
   <div class="tile-body">
     <h2><span class="num">#${id}</span> ${title}</h2>

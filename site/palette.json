@@ -1,28 +1,44 @@
 {
   "light": {
-    "bg": "#ffffff",
-    "surface": "#f4f4f9",
+    "bg": "#f1f0ff",
+    "bgFrom": "#e4e8ff",
+    "bgMid": "#fde4f2",
+    "bgTo": "#d8f5ef",
+    "surface": "#ffffff",
     "text": "#1b1b24",
     "muted": "#54546a",
     "accent": "#4338ca",
     "onAccent": "#ffffff",
+    "gradA": "#4338ca",
+    "gradB": "#c026d3",
     "border": "#767686",
     "tagBg": "#e0e7ff",
     "tagText": "#3730a3",
     "track": "#d4d4e0",
-    "focus": "#1d4ed8"
+    "focus": "#1d4ed8",
+    "tileSat": "85%",
+    "tileL1": "68%",
+    "tileL2": "80%"
   },
   "dark": {
     "bg": "#12121a",
+    "bgFrom": "#1b1640",
+    "bgMid": "#2a1236",
+    "bgTo": "#0f2a33",
     "surface": "#1c1c28",
     "text": "#ececf4",
     "muted": "#b4b4c8",
     "accent": "#a5b4fc",
     "onAccent": "#12121a",
+    "gradA": "#a5b4fc",
+    "gradB": "#f0abfc",
     "border": "#8a8aa0",
     "tagBg": "#2b2b52",
     "tagText": "#c7d2fe",
     "track": "#2e2e40",
-    "focus": "#fbbf24"
+    "focus": "#fbbf24",
+    "tileSat": "60%",
+    "tileL1": "42%",
+    "tileL2": "28%"
   }
 }

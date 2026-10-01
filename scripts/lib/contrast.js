@@ -30,6 +30,15 @@ export const REQUIRED_PAIRS = [
   ['focus', 'bg', 3],
   ['focus', 'surface', 3],
   ['accent', 'track', 3],
+  // The page gradient sits directly behind the header, progress text and footer.
+  ...['bgFrom', 'bgMid', 'bgTo'].flatMap((stop) => [
+    ['text', stop, 4.5],
+    ['muted', stop, 4.5],
+    ['gradA', stop, 3],
+    ['gradB', stop, 3],
+  ]),
+  ['gradA', 'track', 3],
+  ['gradB', 'track', 3],
 ];
 
 export function checkPalette(palette) {

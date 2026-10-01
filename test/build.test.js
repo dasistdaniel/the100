@@ -35,7 +35,7 @@ test('builds index, assets and screenshots', async () => {
     assert.doesNotMatch(html, /src="\//);
 
     const css = await readFile(path.join(distDir, 'style.css'), 'utf8');
-    assert.match(css, /--bg:#ffffff/);
+    assert.match(css, /--bg:#[0-9a-f]{6}/);
     assert.match(css, /\.tile\s*\{/);
 
     await stat(path.join(distDir, 'app.js'));
