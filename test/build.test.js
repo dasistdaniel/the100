@@ -39,6 +39,11 @@ test('builds index, assets and screenshots', async () => {
     assert.match(css, /\.tile\s*\{/);
 
     await stat(path.join(distDir, 'app.js'));
+    for (const icon of ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest']) {
+      await stat(path.join(distDir, icon));
+    }
+    assert.match(html, /<link rel="icon" href="favicon\.svg" type="image\/svg\+xml">/);
+    assert.match(html, /<h1[^>]*>[\s\S]*<svg /);
     await stat(path.join(distDir, 'games', '001-a', 'screenshot.png'));
     await assert.rejects(stat(path.join(distDir, 'games', '002-b', 'screenshot.png')));
   } finally {

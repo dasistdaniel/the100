@@ -1,0 +1,31 @@
+{
+  "brand": "The 100",
+  "tagline": "100 Spiele, gebaut mit Claude",
+  "brief": "Showcase-Seite und Marke fuer eine persoenliche 100-Spiele-Challenge: kleine Browserspiele, verspielt, bunt, mit Arcade- und Emoji-Stimmung. Das Logo soll bei 16 px lesbar sein, in einer Farbe funktionieren und zum Farbverlauf der Seite passen.",
+  "adjectives": ["verspielt", "bunt", "retro", "klar"],
+  "criteria": "Erfolg: sofort als Zahl 100 lesbar, eigenstaendig in der Spiele-Welt, stark bei 16 px, einfarbig nutzbar, passt zu Hell und Dunkel.",
+  "mockups": ["website", "favicon-tab", "app-icon", "social", "sticker", "readme"],
+  "nav": ["Spiele", "Fortschritt", "Repo"],
+  "brand_color": "#4338ca",
+  "greyscale": false,
+  "designer": "Daniel & Claude",
+  "round": 2,
+  "concepts": [
+    {
+      "name": "Pixel 100",
+      "symbol": "../master/the100-mark-black.svg",
+      "lockup": "../master/the100-horizontal-black.svg",
+      "symbol_on_tile": "../master/the100-one-white.svg",
+      "lockup_on_dark": "../master/the100-horizontal-dark.svg",
+      "tile_color": "#4338ca",
+      "idea": "Die Zahl 100 in den Pixeln alter Spiele, mit dem Farbverlauf von Indigo zu Fuchsia.",
+      "rationale": [
+        "Zahl und Spiele-Welt in einem Zeichen: sofort lesbar, sofort verspielt",
+        "Pixelraster ist skalierbar und wird bei 16 px zur Punkt-Ziffer, die 1 dient als Favicon",
+        "Verlauf in Spalten statt als Effekt: reproduzierbar, einfarbig nutzbar"
+      ]
+    }
+  ],
+  "recommendation": "Pixel 100 ist das Logo: ein Zeichen fuer Seite, Favicon und App-Icon.",
+  "next_steps": ["Logo in die Seite einbauen (erledigt)", "Screenshots der Spiele ergaenzen", "Seite veroeffentlichen"]
+}

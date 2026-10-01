@@ -1,6 +1,7 @@
 import { Marked } from 'marked';
 import { padNumber } from './game.js';
 import { escapeHtml } from './html.js';
+import { renderLogo } from './logo.js';
 import { computeProgress } from './progress.js';
 
 // Descriptions are the author's own text, but never trust it blindly: raw HTML is shown as text,
@@ -68,6 +69,17 @@ export function renderTile(game) {
 </article>`;
 }
 
+// The header logo takes its colors from the theme variables, so it follows light and dark mode.
+function headerLogo() {
+  return renderLogo({
+    variant: 'horizontal',
+    fill: (t) => `color-mix(in srgb, var(--grad-b) ${Math.round(t * 100)}%, var(--grad-a))`,
+    ink: 'var(--text)',
+    title: 'The 100',
+    attrs: 'aria-hidden="true" focusable="false"',
+  });
+}
+
 export function renderPage({ template, games, buildDate }) {
   const progress = computeProgress(games);
   const tiles = games.length
@@ -78,6 +90,7 @@ export function renderPage({ template, games, buildDate }) {
     count: progress.count,
     total: progress.total,
     percent: progress.percent,
+    logo: headerLogo(),
     tiles,
     buildDate: escapeHtml(buildDate),
   };

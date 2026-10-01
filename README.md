@@ -33,6 +33,7 @@ Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captai
 - `games/` – ein Ordner pro Spiel (`NNN-slug/index.md`, optional `screenshot.png`)
 - `site/` – Template, Styles, Theme-Umschalter und `palette.json` (alle Farben)
 - `scripts/` – Build-Script und Hilfsmodule
+- `logo/` – Logo-Dateien, Richtlinien (`GUIDELINES.md`) und Präsentationsboard
 - `docs/superpowers/` – Design-Spec und Implementierungsplan
 
 ## Farben ändern

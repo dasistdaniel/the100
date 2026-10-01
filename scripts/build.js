@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { copyFile, cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { checkPalette } from './lib/contrast.js';
@@ -49,6 +49,7 @@ export async function build({
   const css = await readFile(path.join(siteDir, 'style.css'), 'utf8');
   await writeFile(path.join(distDir, 'style.css'), `${paletteToCss(palette)}\n${css}`);
   await copyFile(path.join(siteDir, 'app.js'), path.join(distDir, 'app.js'));
+  await cp(path.join(siteDir, 'icons'), distDir, { recursive: true });
 
   for (const game of games.filter((g) => g.hasScreenshot)) {
     await copyScreenshot(

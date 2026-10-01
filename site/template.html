@@ -6,6 +6,11 @@
   <title>The 100 – 100 Spiele Challenge</title>
   <meta name="description" content="100 kleine Spiele, gebaut mit Claude. Hier ist der Fortschritt.">
   <script>try{var t=localStorage.getItem('the100-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#4338ca">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
@@ -14,7 +19,7 @@
   <header class="site-header">
     <div class="wrap header-row">
       <div>
-        <h1>The 100</h1>
+        <h1 class="logo"><span class="vh">The 100</span>{{logo}}</h1>
         <p class="subtitle">100 Spiele, gebaut mit Claude.</p>
       </div>
       <p class="header-actions">

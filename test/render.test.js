@@ -91,6 +91,14 @@ test('sortForDisplay puts the newest first and does not mutate', () => {
 
 const template = '{{count}}|{{total}}|{{percent}}|{{tiles}}|{{buildDate}}';
 
+test('renderPage inlines the logo with theme-aware colors and hides it from screen readers', () => {
+  const html = renderPage({ template: '{{logo}}', games: [], buildDate: 'X' });
+  assert.match(html, /^<svg /);
+  assert.match(html, /aria-hidden="true"/);
+  assert.match(html, /color-mix\(in srgb, var\(--grad-b\) \d+%, var\(--grad-a\)\)/);
+  assert.match(html, /fill="var\(--text\)"/);
+});
+
 test('renderPage fills progress, tiles and build date', () => {
   const html = renderPage({ template, games: [game({ number: 1 }), game({ number: 2, folder: '002-b', title: 'B' })], buildDate: '2026-10-01' });
   const [count, total, percent, tiles, buildDate] = html.split('|');
