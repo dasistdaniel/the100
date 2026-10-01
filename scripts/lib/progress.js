@@ -6,6 +6,5 @@ export function computeProgress(games) {
     count: games.length,
     total: TOTAL,
     percent: Math.round((games.length / TOTAL) * 100),
-    cells: Array.from({ length: TOTAL }, (_, index) => ({ number: index + 1, done: done.has(index + 1) })),
   };
 }

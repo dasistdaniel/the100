@@ -65,13 +65,6 @@ export function renderTile(game) {
 
 export function renderPage({ template, games, buildDate }) {
   const progress = computeProgress(games);
-  const cells = progress.cells
-    .map((cell) =>
-      cell.done
-        ? `<a class="cell done" href="#game-${padNumber(cell.number)}" tabindex="-1"></a>`
-        : '<span class="cell"></span>',
-    )
-    .join('');
   const tiles = games.length
     ? sortForDisplay(games).map(renderTile).join('\n')
     : '<p class="empty">Noch kein Spiel fertig. Das erste kommt bald.</p>';
@@ -80,7 +73,6 @@ export function renderPage({ template, games, buildDate }) {
     count: progress.count,
     total: progress.total,
     percent: progress.percent,
-    cells,
     tiles,
     buildDate: escapeHtml(buildDate),
   };

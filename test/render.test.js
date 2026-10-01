@@ -89,17 +89,14 @@ test('sortForDisplay puts the newest first and does not mutate', () => {
   assert.deepEqual(games.map((g) => g.number), [1, 3, 2]);
 });
 
-const template = '{{count}}|{{total}}|{{percent}}|{{cells}}|{{tiles}}|{{buildDate}}';
+const template = '{{count}}|{{total}}|{{percent}}|{{tiles}}|{{buildDate}}';
 
-test('renderPage fills progress, cells, tiles and build date', () => {
+test('renderPage fills progress, tiles and build date', () => {
   const html = renderPage({ template, games: [game({ number: 1 }), game({ number: 2, folder: '002-b', title: 'B' })], buildDate: '2026-10-01' });
-  const [count, total, percent, cells, tiles, buildDate] = html.split('|');
+  const [count, total, percent, tiles, buildDate] = html.split('|');
   assert.equal(count, '2');
   assert.equal(total, '100');
   assert.equal(percent, '2');
-  assert.equal((cells.match(/class="cell/g) ?? []).length, 100);
-  assert.equal((cells.match(/class="cell done"/g) ?? []).length, 2);
-  assert.match(cells, /<a class="cell done" href="#game-001" tabindex="-1"><\/a>/);
   assert.equal((tiles.match(/<article/g) ?? []).length, 2);
   assert.equal(buildDate, '2026-10-01');
 });

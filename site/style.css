@@ -57,13 +57,6 @@ h1 { margin: 0; font-size: 2.25rem; line-height: 1.1; }
 .fill { height: 100%; background: var(--accent); animation: grow .8s ease-out; }
 @keyframes grow { from { width: 0; } }
 
-.cells {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(1rem, 1fr));
-  gap: 3px; margin-top: .75rem;
-}
-.cell { display: block; aspect-ratio: 1; background: var(--track); border-radius: 3px; }
-.cell.done { background: var(--accent); }
-
 /* Tiles */
 .tiles { display: grid; gap: 1.25rem; grid-template-columns: 1fr; padding-bottom: 2rem; }
 @media (min-width: 40rem) { .tiles { grid-template-columns: repeat(2, 1fr); } }
