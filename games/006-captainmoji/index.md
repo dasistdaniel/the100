@@ -2,7 +2,8 @@
 title: "Captain Moji"
 date: 2026-09-29
 repo: https://github.com/dasistdaniel/captainmoji
-tags: [emoji]
+play-url: https://dasistdaniel.github.io/captainmoji/
+tags: [emoji, adventure]
 emoji: 🧑‍✈️
 ---
-Ein Emoji-Spiel aus der 100-Spiele-Challenge. Beschreibung folgt.
+Erlebe die Abentauer von Captain Moji in diesem Rogue Like Adventure

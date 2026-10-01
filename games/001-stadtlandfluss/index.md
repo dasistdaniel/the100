@@ -3,7 +3,7 @@ title: "Stadt Land Fluss"
 date: 2026-02-22
 repo: https://github.com/dasistdaniel/stadtlandfluss
 play_url: https://dasistdaniel.github.io/stadtlandfluss/
-tags: []
+tags: [tool]
 emoji: 🏙️
 ---
-Stadt, Land, Fluss zum Spielen im Browser. Beschreibung folgt.
+Kein Spiel, aber ein kleines Hilfe Tool zum Stadt-Land-Fluss spielen.
