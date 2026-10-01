@@ -1,0 +1,22 @@
+{
+  "name": "the100",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Showcase site for the 100 games challenge",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/dev.js",
+    "new": "node scripts/new-game.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "marked": "^14.1.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
+  }
+}
