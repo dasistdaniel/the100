@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The 100 – 100 Spiele Challenge</title>
+  <meta name="description" content="100 kleine Spiele, gebaut mit Claude. Hier ist der Fortschritt.">
+  <script>try{var t=localStorage.getItem('the100-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <div>
+        <h1>The 100</h1>
+        <p class="subtitle">100 Spiele, gebaut mit Claude.</p>
+      </div>
+      <p class="header-actions">
+        <button id="theme-toggle" class="btn" type="button" hidden>Farbschema: System</button>
+        <a class="btn" href="https://github.com/dasistdaniel/The100">Repo<span class="vh"> auf GitHub</span></a>
+      </p>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section class="progress" aria-labelledby="progress-title">
+      <h2 id="progress-title" class="vh">Fortschritt</h2>
+      <p class="progress-label"><strong>{{count}} / {{total}}</strong> Spiele fertig · {{percent}} %</p>
+      <div class="bar" role="progressbar" aria-label="{{count}} von {{total}} Spielen fertig" aria-valuemin="0" aria-valuemax="{{total}}" aria-valuenow="{{count}}">
+        <div class="fill" style="width:{{percent}}%"></div>
+      </div>
+      <div class="cells" aria-hidden="true">{{cells}}</div>
+    </section>
+    <div class="tiles">
+{{tiles}}
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap"><p>Zuletzt gebaut am {{buildDate}}.</p></div>
+  </footer>
+</body>
+</html>

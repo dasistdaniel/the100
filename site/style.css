@@ -1,0 +1,108 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+[hidden] { display: none !important; }
+
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+
+.vh {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus {
+  left: 1rem; top: 1rem; z-index: 10; padding: .75rem 1rem;
+  background: var(--accent); color: var(--on-accent); border-radius: .5rem;
+}
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+a { color: var(--accent); }
+
+/* Header */
+.site-header { padding: 1.5rem 0 .5rem; }
+.header-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+h1 { margin: 0; font-size: 2.25rem; line-height: 1.1; }
+.subtitle { margin: .25rem 0 0; color: var(--muted); }
+.header-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; padding: .5rem 1rem;
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  color: var(--text); background: var(--surface);
+  border: 2px solid var(--border); border-radius: .5rem;
+}
+.btn:hover { border-color: var(--accent); }
+.btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+/* Progress */
+.progress { margin: 1.5rem 0 2rem; }
+.progress-label { margin: 0 0 .5rem; font-size: 1.125rem; }
+.bar {
+  height: 1.5rem; background: var(--track); border: 2px solid var(--border);
+  border-radius: 999px; overflow: hidden;
+}
+.fill { height: 100%; background: var(--accent); animation: grow .8s ease-out; }
+@keyframes grow { from { width: 0; } }
+
+.cells {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(1rem, 1fr));
+  gap: 3px; margin-top: .75rem;
+}
+.cell { display: block; aspect-ratio: 1; background: var(--track); border-radius: 3px; }
+.cell.done { background: var(--accent); }
+
+/* Tiles */
+.tiles { display: grid; gap: 1.25rem; grid-template-columns: 1fr; padding-bottom: 2rem; }
+@media (min-width: 40rem) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 80rem) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+
+.tile {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface); border: 2px solid var(--border); border-radius: .75rem;
+  scroll-margin-top: 1rem;
+}
+.tile:target { border-color: var(--accent); }
+
+.shot { aspect-ratio: 16 / 9; background: var(--track); display: flex; align-items: center; justify-content: center; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.placeholder { font-size: 3.5rem; line-height: 1; color: var(--muted); font-weight: 700; }
+
+.tile-body { display: flex; flex-direction: column; flex: 1; gap: .5rem; padding: 1rem; }
+.tile h2 { margin: 0; font-size: 1.25rem; line-height: 1.25; }
+.num { color: var(--muted); font-weight: 600; margin-right: .25rem; }
+.meta { margin: 0; color: var(--muted); font-size: .9rem; }
+
+.tags { display: flex; flex-wrap: wrap; gap: .375rem; list-style: none; margin: 0; padding: 0; }
+.tags li { padding: .125rem .625rem; font-size: .8125rem; background: var(--tag-bg); color: var(--tag-text); border-radius: 999px; }
+
+.desc { flex: 1; }
+.desc > :first-child { margin-top: 0; }
+.desc > :last-child { margin-bottom: 0; }
+/* Visually shortened; the full text stays in the DOM for screen readers. */
+.desc { display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: .25rem 0 0; }
+
+.empty { grid-column: 1 / -1; padding: 2rem 0; color: var(--muted); }
+
+/* Footer */
+.site-footer { padding: 1.5rem 0 2.5rem; color: var(--muted); border-top: 1px solid var(--border); }
+.site-footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
