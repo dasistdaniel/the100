@@ -67,6 +67,28 @@ test('rejects impossible dates instead of shifting them', () => {
   );
 });
 
+test('rejects out-of-range months and days with a game-prefixed error', () => {
+  for (const date of ['2026-13-01', '2026-01-32', '2026-00-10']) {
+    assert.throws(
+      () => parseGame('001-a', withFields(`title: A
+date: ${date}
+repo: https://x.test/a`)),
+      /games\/001-a: "date"/,
+      date,
+    );
+  }
+});
+
+test('refuses executable (---js) front matter', () => {
+  const source = `---js
+{title: (globalThis.PWNED_BY_TEST = 1, "t"), date: "2026-03-14", repo: "https://x.test/a"}
+---
+Body
+`;
+  assert.throws(() => parseGame('001-a', source), /games\/001-a: front matter/);
+  assert.equal(globalThis.PWNED_BY_TEST, undefined);
+});
+
 test('handles Windows line endings', () => {
   const crlf = valid.replace(/\n/g, '\r\n');
   const game = parseGame('001-mojiblast', crlf);

@@ -6,8 +6,16 @@ export const TOTAL = 100;
 const FOLDER_PATTERN = /^(\d{3})-([a-z0-9]+(?:-[a-z0-9]+)*)$/;
 
 // JSON_SCHEMA keeps `date: 2026-03-14` a plain string, so impossible dates are not silently rolled over.
+// gray-matter also evaluates `---js` front matter by default; only YAML is allowed here.
+const rejectCode = () => {
+  throw new Error('only YAML front matter is allowed');
+};
 const MATTER_OPTIONS = {
-  engines: { yaml: (source) => yaml.load(source, { schema: yaml.JSON_SCHEMA }) ?? {} },
+  engines: {
+    yaml: (source) => yaml.load(source, { schema: yaml.JSON_SCHEMA }) ?? {},
+    js: rejectCode,
+    javascript: rejectCode,
+  },
 };
 
 export class GameError extends Error {
@@ -47,7 +55,9 @@ function requireHttpsUrl(folder, field, value) {
 
 function requireIsoDate(folder, value) {
   const text = requireText(folder, 'date', value);
-  const valid = /^\d{4}-\d{2}-\d{2}$/.test(text) && new Date(`${text}T00:00:00Z`).toISOString().slice(0, 10) === text;
+  const parsed = new Date(`${text}T00:00:00Z`);
+  const valid =
+    /^\d{4}-\d{2}-\d{2}$/.test(text) && !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === text;
   if (!valid) {
     throw new GameError(folder, `"date" must be a real date like 2026-03-14, got "${text}"`);
   }
