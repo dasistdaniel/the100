@@ -2,7 +2,7 @@
 title: "Captain Moji"
 date: 2026-09-29
 repo: https://github.com/dasistdaniel/captainmoji
-play-url: https://dasistdaniel.github.io/captainmoji/
+play_url: https://dasistdaniel.github.io/captainmoji/
 tags: [emoji, adventure]
 emoji: 🧑‍✈️
 ---
