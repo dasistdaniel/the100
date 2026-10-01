@@ -15,7 +15,7 @@ Das legt `games/NNN-mojiblast/index.md` mit der nächsten freien Nummer an. Dann
 1. In `index.md` Titel, Datum, Tags und Beschreibung anpassen. Pflicht sind `title`, `date`, `repo`. Optional sind `play_url` (zeigt den "Spielen"-Button), `tags` und `emoji` (Platzhalter ohne Screenshot).
 2. Optional einen Screenshot als `screenshot.png` in denselben Ordner legen.
 3. Lokal ansehen: `npm run dev` und `http://localhost:4173/` öffnen (Seite neu laden, um neu zu bauen).
-4. Committen und pushen. Die GitHub Action baut und veröffentlicht die Seite.
+4. Veröffentlichen mit `npm run publish -- "neues Spiel: MojiBlast"` (oder selbst committen und pushen). Die GitHub Action baut und veröffentlicht die Seite.
 
 Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captain Moji" captainmoji`.
 
@@ -26,6 +26,7 @@ Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captai
 | `npm run new -- <slug> "<Titel>" [repo]` | Neues Spiel anlegen |
 | `npm run dev` | Bauen und lokal auf Port 4173 servieren |
 | `npm run build` | Seite nach `dist/` bauen (prüft auch die Farbkontraste) |
+| `npm run publish -- "Nachricht"` | Tests, Build, Commit und Push in einem Schritt (`--dry-run` zeigt nur, was passieren würde) |
 | `npm test` | Tests ausführen |
 
 ## Aufbau
