@@ -76,7 +76,7 @@ h1 { margin: 0; line-height: 1; }
 .tile:target { border-color: var(--accent); }
 
 .shot {
-  aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 2 / 1; overflow: hidden; display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg,
     hsl(var(--hue) var(--tile-sat) var(--tile-l1)),
     hsl(calc(var(--hue) + 50) var(--tile-sat) var(--tile-l2)));

@@ -13,7 +13,7 @@ npm run new -- mojiblast "MojiBlast"
 Das legt `games/NNN-mojiblast/index.md` mit der nächsten freien Nummer an. Dann:
 
 1. In `index.md` Titel, Datum, Tags und Beschreibung anpassen. Pflicht sind `title`, `date`, `repo`. Optional sind `play_url` (zeigt den "Spielen"-Button), `tags` und `emoji` (Platzhalter ohne Screenshot).
-2. Optional einen Screenshot als `screenshot.png` in denselben Ordner legen.
+2. Optional einen Screenshot als `screenshot.png` in denselben Ordner legen. Bestes Format: **1280×640 px** (2:1), das ist auch das Format des GitHub-Social-Previews. Dieselbe Datei kannst du also im Repo unter Settings, Social preview hochladen.
 3. Lokal ansehen: `npm run dev` und `http://localhost:4173/` öffnen (Seite neu laden, um neu zu bauen).
 4. Veröffentlichen mit `npm run publish -- "neues Spiel: MojiBlast"` (oder selbst committen und pushen). Die GitHub Action baut und veröffentlicht die Seite.
 
