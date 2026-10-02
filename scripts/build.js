@@ -2,6 +2,7 @@ import { copyFile, cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { checkPalette } from './lib/contrast.js';
+import { renderFeed } from './lib/feed.js';
 import { loadGames } from './lib/load-games.js';
 import { renderPage } from './lib/render.js';
 import { paletteToCss } from './lib/theme.js';
@@ -45,6 +46,9 @@ export async function build({
 
   const template = await readFile(path.join(siteDir, 'template.html'), 'utf8');
   await writeFile(path.join(distDir, 'index.html'), renderPage({ template, games, buildDate }));
+
+  const site = JSON.parse(await readFile(path.join(siteDir, 'site.json'), 'utf8'));
+  await writeFile(path.join(distDir, 'feed.xml'), renderFeed({ games, ...site, buildDate }));
 
   const css = await readFile(path.join(siteDir, 'style.css'), 'utf8');
   await writeFile(path.join(distDir, 'style.css'), `${paletteToCss(palette)}\n${css}`);

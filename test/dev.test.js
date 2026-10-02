@@ -24,6 +24,26 @@ async function status(pathname) {
   return response.status;
 }
 
+test('dev server sends the right content type for feed and icons', async () => {
+  const { child, ready } = startServer();
+  try {
+    await ready;
+    const types = {};
+    for (const file of ['/feed.xml', '/favicon.svg', '/favicon.ico', '/site.webmanifest']) {
+      const response = await fetch(`http://localhost:${port}${file}`);
+      await response.arrayBuffer();
+      types[file] = response.headers.get('content-type');
+    }
+    assert.match(types['/feed.xml'], /^application\/rss\+xml/);
+    assert.equal(types['/favicon.svg'], 'image/svg+xml');
+    assert.equal(types['/favicon.ico'], 'image/x-icon');
+    assert.match(types['/site.webmanifest'], /^application\/manifest\+json/);
+  } finally {
+    child.removeAllListeners('exit');
+    child.kill();
+  }
+});
+
 test('dev server serves pages, rejects bad URLs and survives them', async () => {
   const { child, ready } = startServer();
   try {

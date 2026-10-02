@@ -37,6 +37,12 @@ Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captai
 - `logo/` – Logo-Dateien, Richtlinien (`GUIDELINES.md`) und Präsentationsboard
 - `docs/superpowers/` – Design-Spec und Implementierungsplan
 
+## RSS-Feed
+
+Bei jedem Build entsteht `feed.xml` (RSS 2.0, neueste Spiele zuerst): https://dasistdaniel.github.io/the100/feed.xml
+
+Die Basis-URL steht in `site/site.json`. Das Datum eines Eintrags ist das Feld `date` des Spiels.
+
 ## Farben ändern
 
 Alle Farben stehen in `site/palette.json` (Hell und Dunkel). `npm run build` und `npm test` schlagen fehl, wenn ein Farbpaar WCAG AA unterschreitet.

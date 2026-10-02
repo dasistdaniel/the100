@@ -38,6 +38,13 @@ test('builds index, assets and screenshots', async () => {
     assert.match(css, /--bg:#[0-9a-f]{6}/);
     assert.match(css, /\.tile\s*\{/);
 
+    assert.match(html, /<link rel="alternate" type="application\/rss\+xml" title="The 100" href="feed\.xml">/);
+    assert.match(html, /<a class="btn" href="feed\.xml">RSS/);
+    const feed = await readFile(path.join(distDir, 'feed.xml'), 'utf8');
+    assert.match(feed, /<rss version="2\.0"/);
+    assert.equal((feed.match(/<item>/g) ?? []).length, 2);
+    assert.match(feed, /<link>https:\/\/dasistdaniel\.github\.io\/the100\/#game-002<\/link>/);
+
     await stat(path.join(distDir, 'app.js'));
     for (const icon of ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'site.webmanifest']) {
       await stat(path.join(distDir, icon));
