@@ -27,6 +27,7 @@ Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captai
 | `npm run dev` | Bauen und lokal auf Port 4173 servieren |
 | `npm run build` | Seite nach `dist/` bauen (prüft auch die Farbkontraste) |
 | `npm run publish -- "Nachricht"` | Tests, Build, Commit und Push in einem Schritt (`--dry-run` zeigt nur, was passieren würde) |
+| `npm run previews -- [Spiel] [--force]` | Social Preview des Spiel-Repos von GitHub als `screenshot.png` laden (siehe unten) |
 | `npm test` | Tests ausführen |
 
 ## Aufbau
@@ -36,6 +37,21 @@ Ist der Repo-Name ein anderer als der Titel: `npm run new -- captainmoji "Captai
 - `scripts/` – Build-Script und Hilfsmodule
 - `logo/` – Logo-Dateien, Richtlinien (`GUIDELINES.md`) und Präsentationsboard
 - `docs/superpowers/` – Design-Spec und Implementierungsplan
+
+## Social Previews als Screenshots
+
+Hast du im Spiel-Repo unter Settings, Social preview ein Bild (1280×640) hochgeladen, holt `npm run previews` es als `screenshot.png`:
+
+```bash
+npm run previews                      # nur Spiele ohne screenshot.png
+npm run previews -- 8 --force         # Spiel 008 ersetzen (auch: Slug oder Ordnername)
+npm run previews -- --force           # alle ersetzen, die ein eigenes Preview haben
+npm run previews -- --dry-run         # nur anzeigen, was passieren würde
+```
+
+- Ein vorhandener Screenshot wird nur mit `--force` ersetzt.
+- Die von GitHub automatisch erzeugte Karte (Repo-Name, Sterne) wird nicht geladen, weil sie das Spiel nicht zeigt. Mit `--include-generated` geht es trotzdem.
+- Braucht die GitHub CLI (`gh auth login`).
 
 ## RSS-Feed
 
